@@ -4,9 +4,21 @@ using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GoodZoo.Models;
 
-namespace GoodZoo.Tests.ModelTests
+namespace GoodZoo.Tests
 {
-    class AnimalTests
+    [TestClass]
+    public class AnimalTests
     {
+        [TestMethod]
+        public void GetName_ReturnsAnimalName_String()
+        {
+            //Arrange
+            var animal = new Animal("Dog");
+            //Act
+            var result = animal.Name;
+            //Assert
+            Assert.AreEqual("Dog", result);
+
+        }
     }
 }

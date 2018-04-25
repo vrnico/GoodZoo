@@ -8,6 +8,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GoodZoo.Models
 {
     public class Animal
+
     {
+
+        public string Name { get; set; }
+        public Animal(string name)
+        {
+            Name = name;
+        }
     }
 }
