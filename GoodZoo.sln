@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodZoo", "GoodZoo\GoodZoo.csproj", "{BD572602-5FD4-472B-9D33-116B997F1DD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoodZoo", "GoodZoo\GoodZoo.csproj", "{BD572602-5FD4-472B-9D33-116B997F1DD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodZoo.Tests", "GoodZoo.Tests\GoodZoo.Tests.csproj", "{97EA6F18-6B27-4210-8F12-E7D3B7BA4BF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BD572602-5FD4-472B-9D33-116B997F1DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD572602-5FD4-472B-9D33-116B997F1DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD572602-5FD4-472B-9D33-116B997F1DD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97EA6F18-6B27-4210-8F12-E7D3B7BA4BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97EA6F18-6B27-4210-8F12-E7D3B7BA4BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97EA6F18-6B27-4210-8F12-E7D3B7BA4BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97EA6F18-6B27-4210-8F12-E7D3B7BA4BF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
