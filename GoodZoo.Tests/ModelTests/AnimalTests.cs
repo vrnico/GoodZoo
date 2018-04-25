@@ -13,11 +13,11 @@ namespace GoodZoo.Tests
         public void GetName_ReturnsAnimalName_String()
         {
             //Arrange
-            var animal = new Animal("Dog");
+            var animal = new Animal("Louis", "Canine", "Male", "Domestic");
             //Act
             var result = animal.Name;
             //Assert
-            Assert.AreEqual("Dog", result);
+            Assert.AreEqual("Louis", result);
 
         }
     }

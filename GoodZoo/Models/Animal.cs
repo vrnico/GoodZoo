@@ -12,9 +12,17 @@ namespace GoodZoo.Models
     {
 
         public string Name { get; set; }
-        public Animal(string name)
+        public string Species { get; set; }
+        public string Sex { get; set; }
+        public string HabitatType { get; set; }
+
+        public Animal(string name, string species, string sex, string habitatType)
         {
             Name = name;
+            Species = species;
+            Sex = sex;
+            HabitatType = habitatType;
+
         }
     }
 }
