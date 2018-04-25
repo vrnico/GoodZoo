@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GoodZoo.Models.Animal>
+
+@{
+    ViewData["Title"] = "Animal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Animal List</h2>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vet.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listAnimal in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelAnimal => listAnimal.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelAnimal => listAnimal.Vet.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = listAnimal.AnimalId }) |
+                @Html.ActionLink("Details", "Details", new { id = listAnimal.AnimalId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = listAnimal.AnimalId })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

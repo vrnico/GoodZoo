@@ -1,30 +1,83 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GoodZoo.Models;
 using Microsoft.AspNetCore.Mvc;
+using GoodZoo.Models;
 using GoodZoo.Controllers;
+using Moq;
+using System.Linq;
 
 namespace GoodZoo.Tests.ControllerTests
 {
-    class AnimalsControllerTest
+
+    [TestClass]
+    public class AnimalsControllerTests
     {
+        Mock<IAnimalRepository> mock = new Mock<IAnimalRepository>();
+
+        private void DbSetup()
+        {
+            mock.Setup(m => m.Animals).Returns(new Animal[]
+            {
+                new Animal {AnimalId = 1, Name = "Louis" },
+                new Animal {AnimalId = 2, Name = "Coco" },
+                new Animal {AnimalId = 3, Name = "Gordon" }
+            }.AsQueryable());
+        }
+
+
         [TestMethod]
-        public void AnimalsController_AddsAnimalToIndexModelData_Collection()
+        public void Mock_GetViewResultIndex_ActionResult() // Confirms route returns view
+        {
+            //Arrange
+            DbSetup();
+            AnimalsController controller = new AnimalsController(mock.Object);
+
+            //Act
+            var result = controller.Index();
+
+            //Assert
+            Assert.IsInstanceOfType(result, typeof(ActionResult));
+        }
+
+        [TestMethod]
+        public void Mock_IndexContainsModelData_List() // Confirms model as list of animals
         {
             // Arrange
-            AnimalsController controller = new AnimalsController();
-            Animal testAnimal = new Animal("Louis", "Canine", "Male", "Domestic");
-            testAnimal.Name = "Louis";
+            DbSetup();
+            ViewResult indexView = new AnimalsController(mock.Object).Index() as ViewResult;
 
             // Act
-            controller.Create(testAnimal);
-            ViewResult indexView = new AnimalsController().Index() as ViewResult;
-            var collection = indexView.ViewData.Model as List<Animal>;
+            var result = indexView.ViewData.Model;
 
             // Assert
-            CollectionAssert.Contains(collection, testAnimal);
+            Assert.IsInstanceOfType(result, typeof(List<Animal>));
+        }
+
+     
+        [TestMethod]
+        public void Mock_GetDetails_ReturnsView()
+        {
+            // Arrange
+            Animal testAnimal = new Animal();
+            {
+                testAnimal.AnimalId = 1;
+                testAnimal.Name = "Louis";
+                testAnimal.Species = "Canine";
+                testAnimal.Sex = "Male";
+                testAnimal.HabitatType = "Domestic";
+                testAnimal.VetId = 1;
+        };
+
+            DbSetup();
+            AnimalsController controller = new AnimalsController(mock.Object);
+
+            // Act
+            var resultView = controller.Details(testAnimal.AnimalId) as ViewResult;
+            var model = resultView.ViewData.Model as Animal;
+
+            // Assert
+            Assert.IsInstanceOfType(resultView, typeof(ViewResult));
+            Assert.IsInstanceOfType(model, typeof(Animal));
         }
     }
 }

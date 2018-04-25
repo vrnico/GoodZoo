@@ -20,18 +20,5 @@ namespace GoodZoo.Models
         public string HabitatType { get; set; }
         public int VetId { get; set; }
         public virtual Vet Vet { get; set; }
-
-        public Animal(string name, string species, string sex, string habitatType)
-        {
-            Name = name;
-            Species = species;
-            Sex = sex;
-            HabitatType = habitatType;
-
-        }
-
-        public Animal()
-        {
-        }
     }
 }
