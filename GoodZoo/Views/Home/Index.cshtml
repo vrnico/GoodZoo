@@ -11,8 +11,42 @@
     <title>GoodZoo</title>
 </head>
 <body>
-    <h2>GoodZoo</h2>
+    <h2>a good place to call home</h2>
     <p>@Html.ActionLink("View Animal Index", "Index", "Animals")</p>
     <p>@Html.ActionLink("View Zookeeper Index", "Index", "Vets")</p>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/images/gorilla.jpg" alt="gorilla" style="width:100%;">
+            </div>
+
+            <div class="item">
+                <img src="~/images/hippo.jpg" alt="hippo" style="width:100%;">
+            </div>
+
+            <div class="item">
+                <img src="ny.jpg" alt="New york" style="width:100%;">
+            </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    </div>
 </body>
 </html>

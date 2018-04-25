@@ -40,7 +40,7 @@ namespace GoodZoo.Controllers
 
         public IActionResult Create()
         {
-            ViewBag.OfferId = new SelectList(db.Vets, "VetId", "Name");
+            ViewBag.VetId = new SelectList(db.Vets, "VetId", "Name");
             return View();
         }
 
