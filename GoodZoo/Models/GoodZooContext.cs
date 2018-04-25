@@ -11,6 +11,7 @@ namespace GoodZoo.Models
         }
 
         public DbSet<Animal> Animals { get; set; }
+        public DbSet<Vet> Vets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
