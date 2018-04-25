@@ -1,0 +1,33 @@
+﻿@model IEnumerable<GoodZoo.Models.Animal>
+
+@{
+    ViewData["Title"] = "Animal - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>AnimalHead - Create</title>
+</head>
+<body>
+    <h2>Create</h2>
+    <hr />
+    <h4>Admit New Animal</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name)
+        @Html.LabelFor(model => model.Sex)
+        @Html.TextBoxFor(model => model.Sex)
+        @Html.LabelFor(model => model.Species)
+        @Html.TextBoxFor(model => model.Species)
+        @Html.LabelFor(model => model.HabitatType)
+        @Html.TextBoxFor(model => model.HabitatType)
+
+        @Html.LabelFor(model => model.VetId)
+        @Html.DropDownList("VetId")
+        <input type="submit" value="DONE" />
+    }
+    <p>@Html.ActionLink("Back to list", "Index")</p>
+</body>
+</html>

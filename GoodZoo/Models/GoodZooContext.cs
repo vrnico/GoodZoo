@@ -10,8 +10,8 @@ namespace GoodZoo.Models
         {
         }
 
-        public DbSet<Animal> Animals { get; set; }
-        public DbSet<Vet> Vets { get; set; }
+        public virtual DbSet<Animal> Animals { get; set; }
+        public virtual DbSet<Vet> Vets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

@@ -9,6 +9,16 @@ namespace GoodZoo.Models
     public class EFAnimalRepository : IAnimalRepository
     {
         GoodZooContext db = new GoodZooContext();
+        public EFAnimalRepository()
+        {
+            db = new GoodZooContext();
+        }
+
+        public EFAnimalRepository(GoodZooContext thisDb)
+        {
+            db = thisDb;
+        }
+
 
         public IQueryable<Animal> Animals
         { get { return db.Animals; } }

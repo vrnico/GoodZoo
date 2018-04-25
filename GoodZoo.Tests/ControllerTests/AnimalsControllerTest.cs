@@ -12,6 +12,7 @@ namespace GoodZoo.Tests.ControllerTests
     [TestClass]
     public class AnimalsControllerTests
     {
+        EFAnimalRepository db = new EFAnimalRepository(new TestDbContext());
         Mock<IAnimalRepository> mock = new Mock<IAnimalRepository>();
 
         private void DbSetup()

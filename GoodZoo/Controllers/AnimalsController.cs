@@ -5,13 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GoodZoo.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GoodZoo.Controllers
 {
     public class AnimalsController : Controller
     {
         private IAnimalRepository animalRepo;  // New!
-
+        private GoodZooContext db = new GoodZooContext();
         public AnimalsController(IAnimalRepository repo = null)
         {
             if (repo == null)
@@ -39,6 +40,7 @@ namespace GoodZoo.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.OfferId = new SelectList(db.Vets, "VetId", "Name");
             return View();
         }
 
