@@ -1,11 +1,17 @@
-﻿@model IEnumerable<Animal.Models.Animal>
+﻿@model IEnumerable<GoodZoo.Models.Animal>
+
+@{
+    ViewData["Title"] = "GoodZoo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 
 <html>
 <head>
-    <title>Animal</title>
+    <title>GoodZoo</title>
 </head>
 <body>
-    <h2>SeedHead</h2>
-    <p>@Html.ActionLink("Seed list", "Index", "Seeds")</p>
+    <h2>GoodZoo</h2>
+    <p>@Html.ActionLink("Animal List", "Index", "Animals")</p>
 </body>
 </html>
