@@ -11,8 +11,8 @@ namespace GoodZoo.Controllers
 {
     public class AnimalsController : Controller
     {
-        private IAnimalRepository animalRepo;  // New!
-        private GoodZooContext db = new GoodZooContext();
+        public IAnimalRepository animalRepo;  // New!
+        public GoodZooContext db = new GoodZooContext();
         public AnimalsController(IAnimalRepository repo = null)
         {
             if (repo == null)
@@ -28,12 +28,13 @@ namespace GoodZoo.Controllers
         public ViewResult Index()
         {
             // Updated:
-            return View(animalRepo.Animals.ToList());
+            return View(animalRepo.Animals.Include(animals => animals.Vet).ToList());
         }
 
         public IActionResult Details(int id)
         {
             // Updated:
+            
             Animal thisAnimal = animalRepo.Animals.FirstOrDefault(x => x.AnimalId == id);
             return View(thisAnimal);
         }
@@ -55,6 +56,7 @@ namespace GoodZoo.Controllers
         public IActionResult Edit(int id)
         {
             // Updated:
+            ViewBag.VetId = new SelectList(db.Vets, "VetId", "Name");
             Animal thisAnimal = animalRepo.Animals.FirstOrDefault(x => x.AnimalId == id);
             return View(thisAnimal);
         }

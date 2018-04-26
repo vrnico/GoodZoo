@@ -14,6 +14,8 @@ namespace GoodZoo.Models
             db = new GoodZooContext();
         }
 
+        public object ViewBag { get; private set; }
+
         public EFVetRepository(GoodZooContext thisDb)
         {
             db = thisDb;
@@ -41,6 +43,11 @@ namespace GoodZoo.Models
         {
             db.Vets.Remove(vet);
             db.SaveChanges();
+        }
+
+        public void Clear(Vet vet)
+        {
+            db.RemoveRange(vet);
         }
     }
 

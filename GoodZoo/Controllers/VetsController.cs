@@ -27,8 +27,8 @@ namespace GoodZoo.Controllers
 
         public ViewResult Index()
         {
-            // Updated:
-            return View(animalRepo.Vets.ToList());
+            List<Vet> model = animalRepo.Vets.ToList();
+            return View(model);
         }
 
         public IActionResult Details(int id)
@@ -36,6 +36,11 @@ namespace GoodZoo.Controllers
             // Updated:
             Vet thisVet = animalRepo.Vets.FirstOrDefault(x => x.VetId == id);
             return View(thisVet);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
         }
 
         [HttpPost]

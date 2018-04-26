@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace GoodZoo.Models
 {
     public class EFAnimalRepository : IAnimalRepository
@@ -41,6 +42,11 @@ namespace GoodZoo.Models
         {
             db.Animals.Remove(animal);
             db.SaveChanges();
+        }
+
+       public void Clear(Animal animal)
+        {
+            db.RemoveRange(animal);
         }
     }
 

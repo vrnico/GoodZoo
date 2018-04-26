@@ -1,29 +1,16 @@
-﻿
-@model GoodZoo.Models.Vet
+﻿@model GoodZoo.Models.Animal
 
 @{
-    ViewData["Title"] = "Vet - Details";
+    ViewData["Title"] = "Animal - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2>Vet Details</h2>
+<h2>Animal Details</h2>
 <hr />
-
+@Html.HiddenFor(model => model.AnimalId)
 <p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
-<p>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)</p>
+<p>@Html.DisplayNameFor(model => model.Sex): @Html.DisplayFor(model => model.Sex)</p>
+<p>@Html.DisplayNameFor(model => model.Species): @Html.DisplayFor(model => model.Species)</p>
+<p>Habitat: @Html.DisplayFor(model => model.HabitatType)</p>
+<p>Appointed Zookeeper : @Html.DisplayFor(model => model.Vet)</p>
 
-<ul>
-    @foreach (var animal in Model.Animals)
-    {
-    <li>@Html.DisplayFor(modelItem => animal.Name) | @Html.DisplayFor(modelItem => animal.Sex) | @Html.DisplayFor(modelItem => animal.Species) </li>
-
-    }
-</ul>
-
-
-<p>@Html.ActionLink("Edit", "Edit", new { id = Model.VetId }) | @Html.ActionLink("Back to List", "Index")</p>
-
-
-        }
-<p>@Html.ActionLink("Back to list", "Index")</p>
-</body>
-</html>
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.AnimalId }) | @Html.ActionLink("Back to List", "Index")</p>
